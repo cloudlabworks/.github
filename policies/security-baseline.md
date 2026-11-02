@@ -156,6 +156,10 @@ download at runtime. The baseline is checked at each release and once a year.
 
 Exceptions to this baseline follow the exception process in the governance policy.
 
+| Exception | Scope | Reason | Compensating controls | Approved | Review |
+| --- | --- | --- | --- | --- | --- |
+| Screen lock after more than 10 minutes idle (section 5, item 2) | The always-on lab server only | It runs unattended services and is rarely used at its own keyboard; a short lock interrupts that work | Full-disk encryption; in a locked private residence; remote access only through an authenticated private network; no shared users | Alex Alvord, 2026-11-02 | At each quarterly review |
+
 ## 9. Review
 
 Alex reviews this baseline at least once a year and after a significant change: a new person with access, a
