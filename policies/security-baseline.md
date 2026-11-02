@@ -126,7 +126,7 @@ These targets turn the scans above into objectives. They apply to every public C
 | Metric | Target | Status 2026-11-02 |
 | --- | --- | --- |
 | OpenSSF Scorecard score | 7.0 or higher on each public repository by 2026-12-15 | 6.3 to 6.9 (branch protection and code review are the main gaps) |
-| Open high or critical Dependabot or CodeQL alerts | None older than 14 days | None open |
+| Open high or critical Dependabot or CodeQL alerts | None older than 14 days | oak-events: 0 Dependabot, 0 CodeQL. Scorecard process findings stay open until the Scorecard target is met |
 | CI on `main` | Green; a red `main` is fixed or reverted within 2 days | Green |
 
 Progress is reviewed at each quarterly review (section 9). A missed target is recorded as an exception (section 8) with a new date.
