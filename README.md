@@ -11,8 +11,14 @@ source projects on GitHub.
   reviews, exceptions, legal tracking, acceptable use of oak-events and internal use of AI.
 - [Incident response plan](policies/incident-response-plan.md): how vulnerabilities and incidents are
   reported, rated, fixed, disclosed and recorded.
+- [Supply chain policy](policies/supply-chain-policy.md): suppliers in scope, risk tiers, minimum
+  requirements, the yearly supplier review, exceptions and SBOMs.
+- [Security program](policies/security-program.md): index of the information security and AI program,
+  mapping each CSA AI Controls Matrix domain to its documents, and the applicable laws, licences and
+  standards with how compliance was checked.
 
-Product documents for oak-events (threat model, model card, data flow, SBOM) are in
+Product documents for oak-events (threat model, model card, data flow, SBOM, risk assessment, shared
+responsibility model, hardening guide) are in
 [cloudlabworks/oak-events/docs](https://github.com/cloudlabworks/oak-events/tree/main/docs).
 
 ## Reporting a vulnerability

@@ -4,7 +4,7 @@
 | --- | --- |
 | Owner and approver | Alex Alvord, founder |
 | Applies to | Cloud Lab Works LLC (CloudLab Works) and its open source products (first in scope: oak-events) |
-| Status | Approved by Alex Alvord and published 2026-11-02. |
+| Status | Approved by Alex Alvord and published 2026-11-02. Revision of sections 3, 6 and 8 approved by Alex Alvord and published 2026-11-02. |
 | Review | At least once a year (next by 2027-11-01) and after any significant change (section 4) |
 
 ## 1. Purpose and scope
@@ -36,16 +36,24 @@ Nothing is published, released or submitted under the CloudLab Works name withou
 
 ## 3. Policy set and AICM domain map
 
+The full map of every AICM domain, with status and the requirements check, is in the
+[security program](security-program.md).
+
 | Document | Covers (AICM domains) |
 | --- | --- |
 | This policy | GRC, A&A, LOG (policy), HRS (AI use), legal and regulatory tracking |
-| Security baseline | IAM, CEK, DCS (assets), UEM, AIS and CCC (change and release), TVM (scanning), STA (suppliers) |
+| Security program | Index of the program: every AICM domain, laws, standards and how compliance is checked |
+| Security baseline | IAM, CEK, DCS (assets), UEM, AIS and CCC (change and release), TVM (scanning), STA (account register) |
+| Supply chain policy | STA (supplier tiers, minimum requirements, annual review, risk-based assessment, SBOM) |
 | Incident response plan | SEF, TVM (vulnerability handling) |
 | oak-events `SECURITY.md` | TVM (intake) |
 | oak-events `docs/THREAT_MODEL.md` | TVM, MDS (adversarial threats), AIS |
 | oak-events `docs/MODEL_CARD.md` | MDS (model documentation, open-model risk, failure modes) |
 | oak-events `docs/DATA_FLOW.md` | DSP, IPY, LOG (redaction) |
 | oak-events `docs/SBOM.md` | STA (bill of materials) |
+| oak-events `docs/SHARED_RESPONSIBILITY.md` | STA (shared security responsibility model, per AI-CAIQ question) |
+| oak-events `docs/RISK_ASSESSMENT.md` | GRC (AI risk register, risk acceptance, AI impact assessment) |
+| oak-events `docs/HARDENING.md` | AIS (sandboxing), I&S guidance for customers |
 | Not written yet | BCR (continuity): **Commitment** by 2027-03-31. DCS physical and I&S infrastructure: not applicable, no data centre or hosted service |
 
 ## 4. Review
@@ -74,6 +82,12 @@ a change in a law listed in section 7. The review is a dated commit to the docum
    code scanning, secret scanning and Dependabot alerts, and private vulnerability reports. Alerts are read
    when notified and in the monthly review. oak-events sends nothing to CloudLab Works; its event files stay
    on the customer's host.
+5. Remediation: every NO answer in the published AI-CAIQ is a public GitHub issue labelled
+   `csa-remediation` (in `cloudlabworks/oak-events` for product items, `cloudlabworks/.github` for
+   company items) with the gap, corrective plan, owner and due date. Alex reviews the open issues in the
+   monthly review, records progress in each issue, closes an issue when its evidence is published, and
+   reports the status of every item in the next AI-CAIQ. A missed due date is recorded in the issue with a
+   new date and the reason. **Commitment:** issues opened by 2026-12-15.
 
 ## 7. Legal and regulatory tracking
 
@@ -121,6 +135,20 @@ human approval step before any action that affects a person.
 image files, the `CONTRIBUTING.md` rule, and refusal of contributions that add identification or image
 output. The MIT licence does not let CloudLab Works bind deployers; outside the shipped code, this section
 states expectations and the terms of any support CloudLab Works gives.
+
+**Review of this section.** Alex reviews this section at least once a year, and within 30 days of any
+review trigger in oak-events `docs/RISK_ASSESSMENT.md` (section 1.5) or a report of misuse. Each review:
+
+1. reads the current AI impact assessment and risk register (`RISK_ASSESSMENT.md` sections 2 and 4),
+   especially the risks about misuse, identification and agent actions (R6, R15, R16);
+2. reads every report of misuse or of a contribution that would break this section since the last
+   review (security contact, issues, pull requests), and how each was handled;
+3. checks that each prohibited use is still enforced where CloudLab Works can enforce it (the no-image
+   tests, `CONTRIBUTING.md`, refused contributions);
+4. decides whether the intended use, prohibited uses or deployer duties need to change, and records the
+   decision as a dated commit to this file, even when nothing changes.
+
+A human (Alex) makes every decision in this review; AI assistants may prepare it.
 
 ## 9. Ethics and privacy check
 
