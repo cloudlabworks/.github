@@ -112,12 +112,24 @@ section is a requirement, not a verified state.
 | Dependabot version updates for pip and GitHub Actions | `.github/dependabot.yml` | Weekly |
 | CodeQL static analysis (Python) | `.github/workflows/codeql.yml` | Every push and pull request to `main`, and weekly |
 | GitHub secret scanning | Repository settings | Continuous |
-| OpenSSF Scorecard (5.8 of 10 on 2026-11-02) | `.github/workflows/scorecard.yml` | Every push to `main` and weekly |
+| OpenSSF Scorecard (6.3 of 10 on 2026-11-02 after the day's changes) | `.github/workflows/scorecard.yml` | Every push to `main` and weekly |
 | Lint: ruff, any finding fails the build | `.github/workflows/ci.yml` | Every push and pull request |
 | Tests on Ubuntu and macOS, Python 3.11 and 3.13, without `depthai` or a camera | `.github/workflows/ci.yml` | Every push and pull request |
 | Third-party Actions pinned to a full commit SHA | All workflows | On every change |
 | Private vulnerability reporting | Repository settings, `SECURITY.md` | Continuous |
 | OpenSSF Best Practices badge: passing (project 16204) | bestpractices.dev | Reviewed yearly |
+
+### 6.1 Security targets
+
+These targets turn the scans above into objectives. They apply to every public CloudLab Works repository.
+
+| Metric | Target | Status 2026-11-02 |
+| --- | --- | --- |
+| OpenSSF Scorecard score | 7.0 or higher on each public repository by 2026-12-15 | 6.3 to 6.9 (branch protection and code review are the main gaps) |
+| Open high or critical Dependabot or CodeQL alerts | None older than 14 days | oak-events: 0 Dependabot, 0 CodeQL. Scorecard process findings stay open until the Scorecard target is met |
+| CI on `main` | Green; a red `main` is fixed or reverted within 2 days | Green |
+
+Progress is reviewed at each quarterly review (section 9). A missed target is recorded as an exception (section 8) with a new date.
 
 ## 7. Change and release process
 
