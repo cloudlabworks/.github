@@ -4,9 +4,9 @@
 | --- | --- |
 | Owner | Alex Alvord, founder |
 | Applies to | Cloud Lab Works LLC (CloudLab Works): its accounts, devices and open source projects (first in scope: oak-events) |
-| Status | Approved by Alex Alvord and published 2026-11-02. |
+| Status | Approved by Alex Alvord and published 2026-11-02. Revision of sections 2 and 7 approved by Alex Alvord and published 2026-11-02. |
 | Review | At least once a year (next by 2027-11-01) and after any significant change (see section 9) |
-| Related | [Security and AI governance policy](security-and-ai-governance-policy.md), [Incident response plan](incident-response-plan.md) |
+| Related | [Security and AI governance policy](security-and-ai-governance-policy.md), [Incident response plan](incident-response-plan.md), [Supply chain policy](supply-chain-policy.md), [Security program](security-program.md) |
 
 CloudLab Works is a one-person Washington LLC. It has no employees, runs no hosted service, holds no
 customer data and trains no models. Its products are open source tools that customers run on their own
@@ -42,7 +42,7 @@ policy). **Commitment:** branch protection or a ruleset on `main` requiring the 
 
 ## 2. Account and supplier register
 
-Multi-factor authentication is required on every account that supports it. Status per account is tracked privately and reviewed quarterly.
+Multi-factor authentication is required on every account that supports it. Status per account is tracked privately and reviewed quarterly. Supplier tiers, minimum requirements and the annual supplier review are in the [supply chain policy](supply-chain-policy.md).
 
 | Account or supplier | Purpose |
 | --- | --- |
@@ -141,8 +141,11 @@ Progress is reviewed at each quarterly review (section 9). A missed target is re
    security and privacy review recorded in the pull request, and updates `docs/THREAT_MODEL.md`,
    `docs/DATA_FLOW.md` or `docs/MODEL_CARD.md` as needed.
 5. Release: bump the version in `pyproject.toml` and `server.json`, move "Unreleased" to the new version,
-   regenerate the SBOM (`docs/SBOM.md`), then push a `vX.Y.Z` tag. `release.yml` builds the sdist and wheel
-   and publishes to PyPI.
+   regenerate the SBOM (`docs/SBOM.md`) and re-run the dependency provenance check (supply chain policy
+   section 4.1), check that `docs/SHARED_RESPONSIBILITY.md` still matches the AI-CAIQ (every question has
+   one owner; any duty moved by this release is noted in `CHANGELOG.md`), check that the model hash in
+   `docs/MODEL_CARD.md` and `docs/HARDENING.md` still matches the reference archive, then push a `vX.Y.Z`
+   tag. `release.yml` builds the sdist and wheel and publishes to PyPI.
 6. Rollback: revert the change and release a patch version; a broken or malicious PyPI release is yanked.
 7. Known gap: both release runs so far (v0.1.0 and v0.1.1, 2026-10-12) failed, so oak-events is not on PyPI.
    **Commitment:** a working PyPI release by 2026-12-15.
